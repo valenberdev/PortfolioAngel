@@ -13,10 +13,7 @@
 
   <header>
     <nav aria-label="Navegación principal">
-      <a href="#" class="nav-logo" aria-label="Inicio">Angel Nogue</a>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="#" class="nav-logo">Angel Nogue</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#sobre-mi">Sobre mí</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
@@ -24,34 +21,35 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="https://instagram.com/angelnogue_" target="_blank" class="nav-ig">@angelnogue_</a></li>
       </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="inicio" aria-label="Introducción">
+    <section class="hero" id="inicio">
       <div class="hero-center">
-        <h1>ANGEL<br>NOGUE</h1>
-        <p>Creador de contenido digital — Gastronomía, experiencias &amp; lifestyle</p>
+        <h1 class="hero-name">ANGEL<br>NOGUE</h1>
+        <p class="hero-sub">Creador de contenido digital — Gastronomía, experiencias & lifestyle</p>
       </div>
       <div class="hero-bottom">
-        <span>Bahía Blanca, AR · 2026</span>
-        <div>
+        <span class="hero-bottom-left">Bahía Blanca, AR · 2026</span>
+        <div class="hero-bottom-right">
           <a href="#proyectos" class="hero-btn dark">Ver proyectos</a>
           <a href="#contacto" class="hero-btn light">Contacto</a>
         </div>
       </div>
     </section>
 
-    <section id="sobre-mi" aria-label="Sobre mí">
-      <header>
-        <p class="section-label reveal">Sobre mí</p>
-      </header>
+    <section id="sobre-mi">
+      <p class="section-label reveal">Sobre mí</p>
       <div class="about-wrap">
         <figure class="about-photo-card glass reveal">
           <img src="Captura de pantalla 2026-04-26 001457.jpg" alt="Angel Nogue">
         </figure>
         <article class="about-card glass reveal">
-          <h2 class="section-title">Creador<br><em>digital.</em></h2>
+          <h2 class="section-title" style="margin-bottom:1.75rem;">Creador<br><em>digital.</em></h2>
           <div class="about-text">
             <p>Soy Angel Nogue, creador de contenido digital nacido en Bahía Blanca, Argentina. Me especializo en la creación de videos orientados a gastronomía, experiencias y lifestyle, con un estilo auténtico, dinámico y cercano.</p>
             <p>Actualmente estudio Licenciatura en Marketing, lo que me permite combinar creatividad con visión estratégica. Entiendo el contenido no solo desde lo visual, sino también desde su capacidad para comunicar, conectar con audiencias y generar resultados para las marcas.</p>
@@ -59,220 +57,200 @@
             <p>Mi objetivo es desarrollar piezas de contenido que generen impacto real y construyan valor para cada proyecto.</p>
           </div>
           <hr class="about-divider">
-          <h3>Mi enfoque</h3>
-          <p>Hoy las marcas no necesitan solo publicidad. Necesitan contenido que la gente quiera mirar.<br>Mi objetivo es transformar negocios en contenido atractivo y relevante.</p>
+          <h3 class="enfoque-title">Mi enfoque</h3>
+          <p class="enfoque-text">Hoy las marcas no necesitan solo publicidad. Necesitan contenido que la gente quiera mirar.<br>Mi objetivo es transformar negocios en contenido atractivo y relevante.</p>
         </article>
       </div>
     </section>
 
-    <section class="projects-section" id="proyectos" aria-label="Proyectos">
-      <header>
-        <p class="section-label reveal">Proyectos</p>
-        <h2 class="section-title reveal">Mis <em>reels.</em></h2>
-      </header>
-      <div class="filter-row reveal" role="group" aria-label="Filtrar proyectos">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="colab">Colaboraciones</button>
-        <button class="filter-btn" data-filter="personal">Personal</button>
+    <section class="projects-section" id="proyectos">
+      <p class="section-label reveal">Proyectos</p>
+      <h2 class="section-title reveal">Mis <em>reels.</em></h2>
+      <div class="filter-row reveal">
+        <button class="filter-btn active" onclick="filterReels('all',this)">Todos</button>
+        <button class="filter-btn" onclick="filterReels('colab',this)">Colaboraciones</button>
+        <button class="filter-btn" onclick="filterReels('personal',this)">Personal</button>
       </div>
-      <ul class="reels-grid" id="reelsGrid">
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DTOB9o1jhcT/" target="_blank">
-            <figure class="reel-thumb t1">
-              <img src="mcdonalds1.jpg" alt="Reel de Mc Donald's">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">Mc Donald's</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Publicidad</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DWRlb-ODqjt/" target="_blank">
-            <figure class="reel-thumb t2">
-              <img src="mcdonalds2.jpg" alt="Reel de Mc Donald's">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">Mc Donald's</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Publicidad</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DU_P_XcjuBJ/" target="_blank">
-            <figure class="reel-thumb t3">
-              <img src="mcdonalds3.jpg" alt="Reel de Mc Donald's">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">Mc Donald's</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Publicidad</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DXZryeIjg2S/" target="_blank">
-            <figure class="reel-thumb t4">
-              <img src="aca.png" alt="Reel de ACA Bahía Blanca">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">ACA Bahía Blanca</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Publicidad</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DTk7KuUjhTe/" target="_blank">
-            <figure class="reel-thumb t5">
-              <img src="calzados bahia.png" alt="Reel de Calzados Bahía">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">Calzados Bahía</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Publicidad</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DUTXDTVjgqR/" target="_blank">
-            <figure class="reel-thumb t6">
-              <img src="mostacho gym.png" alt="Reel de Mostacho Gym">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">Mostacho Gym</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Publicidad</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DRPI2i4jkBT/" target="_blank">
-            <figure class="reel-thumb t7">
-              <img src="tonnys.png" alt="Reel de Tonnys Burger">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">Tonnys Burger</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Publicidad</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DWHRXJVjoh0/" target="_blank">
-            <figure class="reel-thumb t8">
-              <img src="circos.png" alt="Reel de Circo Servian">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">Circo Servian</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Publicidad</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="reel-card reveal" data-type="colab">
-          <a href="https://www.instagram.com/reel/DXJG4uOjjvN/" target="_blank">
-            <figure class="reel-thumb t9">
-              <img src="granja del sol.png" alt="Reel de Granja del Sol">
-              <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-            </figure>
-            <figcaption>
-              <p class="reel-brand">Granja del Sol</p>
-              <p class="reel-title">Colaboración oficial</p>
-              <p class="reel-type">Receta</p>
-            </figcaption>
-          </a>
-        </li>
-      </ul>
+      <div class="reels-grid" id="reelsGrid">
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DTOB9o1jhcT/','_blank')">
+          <figure class="reel-thumb t1">
+            <img src="mcdonalds1.jpg" alt="Reel de Mc Donald's">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">Mc Donald's</p>
+            <p class="reel-title">Colaboración oficial</p>
+            <p class="reel-type">Publicidad</p>
+          </figcaption>
+        </div>
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DWRlb-ODqjt/','_blank')">
+          <figure class="reel-thumb t2">
+            <img src="mcdonalds2.jpg" alt="Reel de Mc Donald's">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">Mc Donald's</p>
+            <p class="reel-title">Colaboración oficial</p>
+            <p class="reel-type">Publicidad</p>
+          </figcaption>
+        </div>
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DU_P_XcjuBJ/','_blank')">
+          <figure class="reel-thumb t3">
+            <img src="mcdonalds3.jpg" alt="Reel de Mc Donald's">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">Mc Donald's</p>
+            <p class="reel-title">Colaboración oficial</p>
+            <p class="reel-type">Publicidad</p>
+          </figcaption>
+        </div>
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DXZryeIjg2S/','_blank')">
+          <figure class="reel-thumb t4">
+            <img src="aca.png" alt="Reel de ACA Bahía Blanca">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">ACA Bahía Blanca</p>
+            <p class="reel-title">Colaboracion oficial</p>
+            <p class="reel-type">Publicidad</p>
+          </figcaption>
+        </div>
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DTk7KuUjhTe/','_blank')">
+          <figure class="reel-thumb t5">
+            <img src="calzados bahia.png" alt="Reel de Calzados Bahía">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">Calzados Bahía</p>
+            <p class="reel-title">Colaboracion oficial</p>
+            <p class="reel-type">Publicidad</p>
+          </figcaption>
+        </div>
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DUTXDTVjgqR/','_blank')">
+          <figure class="reel-thumb t6">
+            <img src="mostacho gym.png" alt="Reel de Mostacho Gym">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">Mostacho Gym</p>
+            <p class="reel-title">Colaboracion oficial</p>
+            <p class="reel-type">Publicidad</p>
+          </figcaption>
+        </div>
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DRPI2i4jkBT/','_blank')">
+          <figure class="reel-thumb t7">
+            <img src="tonnys.png" alt="Reel de Tonnys Burger">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">Tonnys Burger</p>
+            <p class="reel-title">Colaboracion oficial</p>
+            <p class="reel-type">Publicidad</p>
+          </figcaption>
+        </div>
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DWHRXJVjoh0/','_blank')">
+          <figure class="reel-thumb t8">
+            <img src="circos.png" alt="Reel de Circo Servian">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">Circo Servian</p>
+            <p class="reel-title">Colaboracion oficial</p>
+            <p class="reel-type">Publicidad</p>
+          </figcaption>
+        </div>
+
+        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DXJG4uOjjvN/','_blank')">
+          <figure class="reel-thumb t9">
+            <img src="granja del sol.png" alt="Reel de Granja del Sol">
+            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </figure>
+          <figcaption>
+            <p class="reel-brand">Granja del Sol</p>
+            <p class="reel-title">Colaboracion oficial</p>
+            <p class="reel-type">Receta</p>
+          </figcaption>
+        </div>
+
+      </div>
     </section>
 
-    <section id="fotos" aria-label="Fotografía">
-      <header>
-        <p class="section-label reveal">Fotografía</p>
-        <h2 class="section-title reveal">Moda &amp;<br><em>marca personal.</em></h2>
-      </header>
-      <ul class="photos-grid">
-        <li class="photo-card reveal">
-          <a href="https://www.instagram.com/p/DXCdRu4jg5M/" target="_blank">
-            <figure class="photo-thumb tp1">
-              <img src="grimey.png" alt="Sesión Grimey para Senior Sportwear">
-              <div class="photo-hover"><span class="photo-hover-label">Ver en Instagram</span></div>
-            </figure>
-            <figcaption>
-              <p class="photo-brand">Senior Sportwear</p>
-              <p class="photo-title">Sesión Grimey</p>
-            </figcaption>
-          </a>
-        </li>
-        <li class="photo-card reveal">
-          <a href="https://www.instagram.com/p/DVoTucjjptz/" target="_blank">
-            <figure class="photo-thumb tp2">
-              <img src="hype.png" alt="Sesión Hype para HypeStyle">
-              <div class="photo-hover"><span class="photo-hover-label">Ver en Instagram</span></div>
-            </figure>
-            <figcaption>
-              <p class="photo-brand">HypeStyle</p>
-              <p class="photo-title">Sesión Hype</p>
-            </figcaption>
-          </a>
-        </li>
-      </ul>
+    <section id="fotos">
+      <p class="section-label reveal">Fotografía</p>
+      <h2 class="section-title reveal">Moda &<br><em>marca personal.</em></h2>
+      <div class="photos-grid">
+        <div class="photo-card reveal" onclick="window.open('https://www.instagram.com/p/DXCdRu4jg5M/','_blank')">
+          <figure class="photo-thumb tp1">
+            <img src="grimey.png" alt="Sesión Grimey para Senior Sportwear">
+            <div class="photo-hover"><span class="photo-hover-label">Ver en Instagram</span></div>
+          </figure>
+          <figcaption>
+            <p class="photo-brand">Senior Sportwear</p>
+            <p class="photo-title">Sesion Grimey</p>
+          </figcaption>
+        </div>
+        <div class="photo-card reveal" onclick="window.open('https://www.instagram.com/p/DVoTucjjptz/','_blank')">
+          <figure class="photo-thumb tp2">
+            <img src="hype.png" alt="Sesión Hype para HypeStyle">
+            <div class="photo-hover"><span class="photo-hover-label">Ver en Instagram</span></div>
+          </figure>
+          <figcaption>
+            <p class="photo-brand">HypeStyle</p>
+            <p class="photo-title">Sesion Hype</p>
+          </figcaption>
+        </div>
+      </div>
     </section>
 
-    <section class="skills-section" id="skills" aria-label="Habilidades">
-      <header>
-        <p class="section-label reveal">Habilidades</p>
-        <h2 class="section-title reveal">Lo que<br><em>hago.</em></h2>
-      </header>
-      <ol class="skills-list reveal">
-        <li class="skill-item">
+    <section class="skills-section" id="skills">
+      <p class="section-label reveal">Habilidades</p>
+      <h2 class="section-title reveal">Lo que<br><em>hago.</em></h2>
+      <div class="skills-list reveal">
+        <div class="skill-item">
           <span class="skill-num">01</span>
-          <h3>Producción de video</h3>
+          <h3 class="skill-name">Producción de video</h3>
           <p class="skill-desc">Reels y contenido en movimiento que retiene la atención desde el primer segundo.</p>
-        </li>
-        <li class="skill-item">
+        </div>
+        <div class="skill-item">
           <span class="skill-num">02</span>
-          <h3>Estrategia de contenido</h3>
+          <h3 class="skill-name">Estrategia de contenido</h3>
           <p class="skill-desc">Planificación con visión de marketing. Contenido que comunica y convierte.</p>
-        </li>
-        <li class="skill-item">
+        </div>
+        <div class="skill-item">
           <span class="skill-num">03</span>
-          <h3>Fotografía &amp; moda</h3>
+          <h3 class="skill-name">Fotografía & moda</h3>
           <p class="skill-desc">Sesiones para marcas de indumentaria con identidad visual coherente.</p>
-        </li>
-        <li class="skill-item">
+        </div>
+        <div class="skill-item">
           <span class="skill-num">04</span>
-          <h3>Colaboraciones</h3>
+          <h3 class="skill-name">Colaboraciones</h3>
           <p class="skill-desc">Experiencia real trabajando con marcas locales e institucionales.</p>
-        </li>
-        <li class="skill-item">
+        </div>
+        <div class="skill-item">
           <span class="skill-num">05</span>
-          <h3>Food &amp; lifestyle</h3>
+          <h3 class="skill-name">Food & lifestyle</h3>
           <p class="skill-desc">Especialización en gastronomía, experiencias y contenido de vida cotidiana.</p>
-        </li>
-        <li class="skill-item">
+        </div>
+        <div class="skill-item">
           <span class="skill-num">06</span>
-          <h3>Edición &amp; post</h3>
+          <h3 class="skill-name">Edición & post</h3>
           <p class="skill-desc">Edición de video y foto con estética propia, dinámica y reconocible.</p>
-        </li>
-      </ol>
+        </div>
+      </div>
     </section>
 
-    <section class="contact-section" id="contacto" aria-label="Contacto">
-      <header>
-        <p class="section-label reveal">Contacto</p>
-        <h2 class="section-title reveal">¿Trabajamos<br><em>juntos?</em></h2>
-      </header>
+    <section class="contact-section" id="contacto">
+      <p class="section-label reveal">Contacto</p>
+      <h2 class="section-title reveal">¿Trabajamos<br><em>juntos?</em></h2>
       <a href="mailto:angelnoguemkt@gmail.com" class="contact-big-email reveal">angelnoguemkt@gmail.com</a>
       <div class="contact-btns reveal">
         <a href="https://instagram.com/angelnogue_" target="_blank" class="c-btn dark">Instagram ↗</a>
@@ -282,33 +260,26 @@
   </main>
 
   <footer>
-    <p>© 2026 Angel Nogue</p>
-    <p>Bahía Blanca, Argentina · <a href="https://instagram.com/angelnogue_" target="_blank">@angelnogue_</a></p>
+    <span>© 2026 Angel Nogue</span>
+    <span>Bahía Blanca, Argentina · <a href="https://instagram.com/angelnogue_" target="_blank">@angelnogue_</a></span>
   </footer>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
 
-    hamburger.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-    });
-
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.reel-card').forEach(card => {
-          card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
-        });
+    function filterReels(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.reel-card').forEach(card => {
+        card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
       });
-    });
+    }
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 55);
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 55);
       });
     }, { threshold: 0.07 });
 
@@ -317,10 +288,9 @@
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-        navLinks.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('navLinks').classList.remove('open');
       });
     });
   </script>
