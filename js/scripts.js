@@ -19,11 +19,17 @@ function initCarousel(container) {
 
   let currentIndex = 0;
 
+  const urls = slides.map(s => {
+    const url = s.getAttribute('onclick');
+    s.removeAttribute('onclick');
+    return url ? url.match(/'([^']+)'/)?.[1] : '#';
+  });
+
   dotsContainer.innerHTML = '';
   slides.forEach((_, i) => {
     const dot = document.createElement('div');
     dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goTo(i));
+    dot.addEventListener('click', (e) => { e.stopPropagation(); goTo(i); });
     dotsContainer.appendChild(dot);
   });
 
@@ -36,29 +42,26 @@ function initCarousel(container) {
     dots[index].classList.add('active');
   }
 
-  function centerSlide(index) {
-    slides[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-  }
-
   function goTo(index) {
     if (index < 0) index = 0;
     if (index >= slides.length) index = slides.length - 1;
     currentIndex = index;
     updateActive(index);
-    centerSlide(index);
+    slides[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
 
-  if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+  if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); goTo(currentIndex - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); goTo(currentIndex + 1); });
 
   slides.forEach((s, i) => {
     s.addEventListener('click', (e) => {
       if (!s.classList.contains('active')) {
-        e.stopImmediatePropagation();
         e.preventDefault();
         goTo(i);
+      } else {
+        window.open(urls[i], '_blank');
       }
-    }, true);
+    });
   });
 
   let scrollTimeout;
@@ -86,7 +89,7 @@ function initCarousel(container) {
   });
 
   updateActive(0);
-  setTimeout(() => centerSlide(0), 100);
+  setTimeout(() => goTo(0), 100);
 }
 
 function initReelTabs() {
