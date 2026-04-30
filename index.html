@@ -47,7 +47,7 @@
       <p class="section-label reveal">Sobre mí</p>
       <div class="about-wrap">
         <figure class="about-photo-card glass reveal">
-          <img src="Captura de pantalla 2026-04-26 001457.jpg" alt="Angel Nogue">
+          <img src="./assets/Captura_de_pantalla_2026-04-26_001457.jpg" alt="Angel Nogue">
         </figure>
         <article class="about-card glass reveal">
           <h2 class="section-title" style="margin-bottom:1.75rem;">Creador<br><em>digital.</em></h2>
@@ -72,116 +72,103 @@
         <button class="filter-btn" onclick="filterReels('colab',this)">Colaboraciones</button>
         <button class="filter-btn" onclick="filterReels('personal',this)">Personal</button>
       </div>
-      <div class="reels-grid" id="reelsGrid">
+      <div class="carousel-wrapper reveal">
+        <div class="reels-carousel" id="reelsCarousel">
 
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DTOB9o1jhcT/','_blank')">
-          <figure class="reel-thumb t1">
-            <img src="mcdonalds1.jpg" alt="Reel de Mc Donald's">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">Mc Donald's</p>
-            <p class="reel-title">Colaboración oficial</p>
-            <p class="reel-type">Publicidad</p>
-          </figcaption>
+          <div class="carousel-slide active" data-type="colab" data-index="0" onclick="window.open('https://www.instagram.com/reel/DTOB9o1jhcT/','_blank')">
+            <figure class="reel-thumb t1">
+              <img src="./assets/mcdonalds1.jpg" alt="Reel de Mc Donald's">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">Mc Donald's</p>
+              <p class="reel-title">Colaboración oficial</p>
+            </figcaption>
+          </div>
+
+          <div class="carousel-slide" data-type="colab" data-index="1" onclick="window.open('https://www.instagram.com/reel/DWRlb-ODqjt/','_blank')">
+            <figure class="reel-thumb t2">
+              <img src="./assets/mcdonalds2.jpg" alt="Reel de Mc Donald's">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">Mc Donald's</p>
+              <p class="reel-title">Colaboración oficial</p>
+            </figcaption>
+          </div>
+
+          <div class="carousel-slide" data-type="colab" data-index="2" onclick="window.open('https://www.instagram.com/reel/DU_P_XcjuBJ/','_blank')">
+            <figure class="reel-thumb t3">
+              <img src="./assets/mcdonalds3.jpg" alt="Reel de Mc Donald's">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">Mc Donald's</p>
+              <p class="reel-title">Colaboración oficial</p>
+            </figcaption>
+          </div>
+
+          <div class="carousel-slide" data-type="colab" data-index="3" onclick="window.open('https://www.instagram.com/reel/DXZryeIjg2S/','_blank')">
+            <figure class="reel-thumb t4">
+              <img src="./assets/aca.png" alt="Reel de ACA Bahía Blanca">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">ACA Bahía Blanca</p>
+              <p class="reel-title">Colaboracion oficial</p>
+            </figcaption>
+          </div>
+
+          <div class="carousel-slide" data-type="colab" data-index="4" onclick="window.open('https://www.instagram.com/reel/DTk7KuUjhTe/','_blank')">
+            <figure class="reel-thumb t5">
+              <img src="./assets/calzados bahia.png" alt="Reel de Calzados Bahía">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">Calzados Bahía</p>
+              <p class="reel-title">Colaboracion oficial</p>
+            </figcaption>
+          </div>
+
+          <div class="carousel-slide" data-type="colab" data-index="5" onclick="window.open('https://www.instagram.com/reel/DUTXDTVjgqR/','_blank')">
+            <figure class="reel-thumb t6">
+              <img src="./assets/mostacho gym.png" alt="Reel de Mostacho Gym">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">Mostacho Gym</p>
+              <p class="reel-title">Colaboracion oficial</p>
+            </figcaption>
+          </div>
+
+          <div class="carousel-slide" data-type="colab" data-index="6" onclick="window.open('https://www.instagram.com/reel/DRPI2i4jkBT/','_blank')">
+            <figure class="reel-thumb t7">
+              <img src="./assets/tonnys.png" alt="Reel de Tonnys Burger">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">Tonnys Burger</p>
+              <p class="reel-title">Colaboracion oficial</p>
+            </figcaption>
+          </div>
+
+          <div class="carousel-slide" data-type="colab" data-index="7" onclick="window.open('https://www.instagram.com/reel/DWHRXJVjoh0/','_blank')">
+            <figure class="reel-thumb t8">
+              <img src="./assets/circos.png" alt="Reel de Circo Servian">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">Circo Servian</p>
+              <p class="reel-title">Colaboracion oficial</p>
+            </figcaption>
+          </div>
+
+          <div class="carousel-slide" data-type="colab" data-index="8" onclick="window.open('https://www.instagram.com/reel/DXJG4uOjjvN/','_blank')">
+            <figure class="reel-thumb t9">
+              <img src="./assets/granja del sol.png" alt="Reel de Granja del Sol">
+            </figure>
+            <figcaption>
+              <p class="reel-brand">Granja del Sol</p>
+              <p class="reel-title">Colaboracion oficial</p>
+            </figcaption>
+          </div>
+
         </div>
-
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DWRlb-ODqjt/','_blank')">
-          <figure class="reel-thumb t2">
-            <img src="mcdonalds2.jpg" alt="Reel de Mc Donald's">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">Mc Donald's</p>
-            <p class="reel-title">Colaboración oficial</p>
-            <p class="reel-type">Publicidad</p>
-          </figcaption>
-        </div>
-
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DU_P_XcjuBJ/','_blank')">
-          <figure class="reel-thumb t3">
-            <img src="mcdonalds3.jpg" alt="Reel de Mc Donald's">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">Mc Donald's</p>
-            <p class="reel-title">Colaboración oficial</p>
-            <p class="reel-type">Publicidad</p>
-          </figcaption>
-        </div>
-
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DXZryeIjg2S/','_blank')">
-          <figure class="reel-thumb t4">
-            <img src="aca.png" alt="Reel de ACA Bahía Blanca">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">ACA Bahía Blanca</p>
-            <p class="reel-title">Colaboracion oficial</p>
-            <p class="reel-type">Publicidad</p>
-          </figcaption>
-        </div>
-
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DTk7KuUjhTe/','_blank')">
-          <figure class="reel-thumb t5">
-            <img src="calzados bahia.png" alt="Reel de Calzados Bahía">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">Calzados Bahía</p>
-            <p class="reel-title">Colaboracion oficial</p>
-            <p class="reel-type">Publicidad</p>
-          </figcaption>
-        </div>
-
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DUTXDTVjgqR/','_blank')">
-          <figure class="reel-thumb t6">
-            <img src="mostacho gym.png" alt="Reel de Mostacho Gym">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">Mostacho Gym</p>
-            <p class="reel-title">Colaboracion oficial</p>
-            <p class="reel-type">Publicidad</p>
-          </figcaption>
-        </div>
-
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DRPI2i4jkBT/','_blank')">
-          <figure class="reel-thumb t7">
-            <img src="tonnys.png" alt="Reel de Tonnys Burger">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">Tonnys Burger</p>
-            <p class="reel-title">Colaboracion oficial</p>
-            <p class="reel-type">Publicidad</p>
-          </figcaption>
-        </div>
-
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DWHRXJVjoh0/','_blank')">
-          <figure class="reel-thumb t8">
-            <img src="circos.png" alt="Reel de Circo Servian">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">Circo Servian</p>
-            <p class="reel-title">Colaboracion oficial</p>
-            <p class="reel-type">Publicidad</p>
-          </figcaption>
-        </div>
-
-        <div class="reel-card reveal" data-type="colab" onclick="window.open('https://www.instagram.com/reel/DXJG4uOjjvN/','_blank')">
-          <figure class="reel-thumb t9">
-            <img src="granja del sol.png" alt="Reel de Granja del Sol">
-            <div class="reel-hover-overlay"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-          </figure>
-          <figcaption>
-            <p class="reel-brand">Granja del Sol</p>
-            <p class="reel-title">Colaboracion oficial</p>
-            <p class="reel-type">Receta</p>
-          </figcaption>
-        </div>
-
+        <button class="carousel-arrow carousel-prev" aria-label="Anterior">&#8592;</button>
+        <button class="carousel-arrow carousel-next" aria-label="Siguiente">&#8594;</button>
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
     </section>
 
@@ -273,8 +260,8 @@
     function filterReels(type, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      document.querySelectorAll('.reel-card').forEach(card => {
-        card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
+      document.querySelectorAll('.carousel-slide').forEach(slide => {
+        slide.style.display = (type === 'all' || slide.dataset.type === type) ? '' : 'none';
       });
     }
 
@@ -295,10 +282,63 @@
       });
     });
   </script>
+
   <script>
     window.addEventListener('scroll', () => {
       document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
     });
+  </script>
+
+  <script>
+    (function() {
+      const carousel = document.getElementById('reelsCarousel');
+      const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+      const dotsContainer = document.getElementById('carouselDots');
+      let currentIndex = 0;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
+
+      function updateActive(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+      }
+
+      function goTo(index) {
+        if (index < 0) index = 0;
+        if (index >= slides.length) index = slides.length - 1;
+        currentIndex = index;
+        updateActive(index);
+        const slide = slides[index];
+        const carouselRect = carousel.getBoundingClientRect();
+        const slideRect = slide.getBoundingClientRect();
+        const scrollLeft = carousel.scrollLeft + (slideRect.left - carouselRect.left) - (carouselRect.width / 2) + (slideRect.width / 2);
+        carousel.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      }
+
+      document.querySelector('.carousel-prev').addEventListener('click', () => goTo(currentIndex - 1));
+      document.querySelector('.carousel-next').addEventListener('click', () => goTo(currentIndex + 1));
+
+      slides.forEach((s, i) => {
+        s.addEventListener('click', (e) => {
+          if (!s.classList.contains('active')) {
+            e.preventDefault();
+            goTo(i);
+          }
+        });
+      });
+
+      updateActive(0);
+      goTo(0);
+    })();
   </script>
 </body>
 </html>
