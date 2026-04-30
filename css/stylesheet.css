@@ -303,13 +303,14 @@
   .about-card { padding: 2.5rem; }
   
   .about-photo-card {
-    padding: 0;
+    padding:0;
     overflow: hidden;
-    aspect-ratio: 3/4;
+    aspect-ratio: 4/5;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 1.25rem;
   }
   
   .about-text p {
@@ -767,7 +768,7 @@
   
     .about-wrap { grid-template-columns: 1fr; }
   
-    .about-photo-card { display: none; }
+    .about-photo-card { display: flex; aspect-ratio: 4/3; order: -1; }
   
     .reels-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   

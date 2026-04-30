@@ -25,23 +25,25 @@ function initCarousel(container) {
     return;
   }
 
+  const isMobile = window.innerWidth <= 768;
   const realSlides = slides;
   const cloneCount = Math.min(3, slides.length);
 
-  for (let i = 0; i < cloneCount; i++) {
-    const clone = realSlides[realSlides.length - 1 - i].cloneNode(true);
-    clone.classList.add('carousel-clone');
-    carousel.insertBefore(clone, carousel.firstChild);
-  }
-
-  for (let i = 0; i < cloneCount; i++) {
-    const clone = realSlides[i].cloneNode(true);
-    clone.classList.add('carousel-clone');
-    carousel.appendChild(clone);
+  if (!isMobile) {
+    for (let i = 0; i < cloneCount; i++) {
+      const clone = realSlides[realSlides.length - 1 - i].cloneNode(true);
+      clone.classList.add('carousel-clone');
+      carousel.insertBefore(clone, carousel.firstChild);
+    }
+    for (let i = 0; i < cloneCount; i++) {
+      const clone = realSlides[i].cloneNode(true);
+      clone.classList.add('carousel-clone');
+      carousel.appendChild(clone);
+    }
   }
 
   const allSlides = Array.from(carousel.querySelectorAll('.carousel-slide'));
-  const realStartIdx = cloneCount;
+  const realStartIdx = isMobile ? 0 : cloneCount;
   let currentIndex = 0;
 
   const urls = realSlides.map(s => {
@@ -52,10 +54,10 @@ function initCarousel(container) {
   });
 
   dotsContainer.innerHTML = '';
-  realSlides.forEach((_, i) => {
+  realSlides.forEach((_, idx) => {
     const dot = document.createElement('div');
-    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', (e) => { e.stopPropagation(); goTo(i); });
+    dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+    dot.addEventListener('click', (e) => { e.stopPropagation(); goTo(idx); });
     dotsContainer.appendChild(dot);
   });
   const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
@@ -75,18 +77,18 @@ function initCarousel(container) {
     if (index >= realSlides.length) index = 0;
     currentIndex = index;
     updateActive(index);
-    const target = allSlides[realStartIdx + index];
+    const target = isMobile ? realSlides[index] : allSlides[realStartIdx + index];
     if (target) target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
 
-  realSlides.forEach((slide, i) => {
+  realSlides.forEach((slide, idx) => {
     slide.addEventListener('click', function(e) {
       if (!this.classList.contains('active')) {
         e.preventDefault();
         e.stopPropagation();
-        goTo(i);
+        goTo(idx);
       } else {
-        window.open(urls[i], '_blank');
+        window.open(urls[idx], '_blank');
       }
     });
   });
@@ -94,34 +96,36 @@ function initCarousel(container) {
   if (prevBtn) {
     const np = prevBtn.cloneNode(true);
     prevBtn.parentNode.replaceChild(np, prevBtn);
-    np.addEventListener('click', e => { e.stopPropagation(); goTo(currentIndex - 1); });
+    np.addEventListener('click', (e) => { e.stopPropagation(); goTo(currentIndex - 1); });
   }
   if (nextBtn) {
     const nn = nextBtn.cloneNode(true);
     nextBtn.parentNode.replaceChild(nn, nextBtn);
-    nn.addEventListener('click', e => { e.stopPropagation(); goTo(currentIndex + 1); });
+    nn.addEventListener('click', (e) => { e.stopPropagation(); goTo(currentIndex + 1); });
   }
 
+  let scrollTimeout;
   carousel.addEventListener('scroll', () => {
-    requestAnimationFrame(() => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
       const rect = carousel.getBoundingClientRect();
       const center = rect.left + rect.width / 2;
       let closest = 0, closestDist = Infinity;
-      realSlides.forEach((slide, i) => {
+      realSlides.forEach((slide, idx) => {
         const sRect = slide.getBoundingClientRect();
         const dist = Math.abs(sRect.left + sRect.width / 2 - center);
-        if (dist < closestDist) { closestDist = dist; closest = i; }
+        if (dist < closestDist) { closestDist = dist; closest = idx; }
       });
       if (closest !== currentIndex) {
         currentIndex = closest;
         updateActive(currentIndex);
       }
-    });
+    }, 100);
   });
 
   updateActive(0);
   setTimeout(() => {
-    const target = allSlides[realStartIdx];
+    const target = isMobile ? realSlides[0] : allSlides[realStartIdx];
     if (target) target.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
   }, 50);
 }
@@ -143,10 +147,10 @@ function initSimpleCarousel(container, slides, dotsContainer, prevBtn, nextBtn) 
   });
 
   dotsContainer.innerHTML = '';
-  slides.forEach((_, i) => {
+  slides.forEach((_, idx) => {
     const dot = document.createElement('div');
-    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', (e) => { e.stopPropagation(); goTo(i); });
+    dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+    dot.addEventListener('click', (e) => { e.stopPropagation(); goTo(idx); });
     dotsContainer.appendChild(dot);
   });
   const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
@@ -169,23 +173,23 @@ function initSimpleCarousel(container, slides, dotsContainer, prevBtn, nextBtn) 
     slides[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
 
-  slides.forEach((s, i) => {
-    s.addEventListener('click', function(e) {
+  slides.forEach((slide, idx) => {
+    slide.addEventListener('click', function(e) {
       if (!this.classList.contains('active')) {
-        e.preventDefault(); e.stopPropagation(); goTo(i);
-      } else { window.open(urls[i], '_blank'); }
+        e.preventDefault(); e.stopPropagation(); goTo(idx);
+      } else { window.open(urls[idx], '_blank'); }
     });
   });
 
   if (prevBtn) {
     const np = prevBtn.cloneNode(true);
     prevBtn.parentNode.replaceChild(np, prevBtn);
-    np.addEventListener('click', e => { e.stopPropagation(); goTo(currentIndex - 1); });
+    np.addEventListener('click', (e) => { e.stopPropagation(); goTo(currentIndex - 1); });
   }
   if (nextBtn) {
     const nn = nextBtn.cloneNode(true);
     nextBtn.parentNode.replaceChild(nn, nextBtn);
-    nn.addEventListener('click', e => { e.stopPropagation(); goTo(currentIndex + 1); });
+    nn.addEventListener('click', (e) => { e.stopPropagation(); goTo(currentIndex + 1); });
   }
 
   let scrollTimeout;
@@ -196,10 +200,10 @@ function initSimpleCarousel(container, slides, dotsContainer, prevBtn, nextBtn) 
       const rect = carousel.getBoundingClientRect();
       const center = rect.left + rect.width / 2;
       let closest = 0, closestDist = Infinity;
-      slides.forEach((slide, i) => {
+      slides.forEach((slide, idx) => {
         const sRect = slide.getBoundingClientRect();
         const dist = Math.abs(sRect.left + sRect.width / 2 - center);
-        if (dist < closestDist) { closestDist = dist; closest = i; }
+        if (dist < closestDist) { closestDist = dist; closest = idx; }
       });
       if (closest !== currentIndex) { currentIndex = closest; updateActive(currentIndex); }
     }, 100);
