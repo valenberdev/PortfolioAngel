@@ -818,14 +818,21 @@
 .reels-carousel {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 1.5rem;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 2rem 0;
+  padding: 3rem 0;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  scroll-snap-type: x mandatory;
+}
+
+.reels-carousel::before,
+.reels-carousel::after {
+  content: '';
+  flex-shrink: 0;
+  width: calc(50% - 130px);
 }
 
 .reels-carousel::-webkit-scrollbar { display: none; }
@@ -947,4 +954,11 @@
 @media (max-width: 480px) {
   .carousel-slide { flex: 0 0 180px; }
   .carousel-arrow { display: none; }
+}
+
+.reels-carousel::before,
+.reels-carousel::after {
+  content: '';
+  flex: 1;
+  min-width: calc(50% - 130px);
 }
