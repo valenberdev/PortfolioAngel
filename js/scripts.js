@@ -89,9 +89,6 @@ function initCarousel(container) {
     updateActive(index);
     const target = isMobile ? realSlides[index] : allSlides[realStartIdx + index];
     if (target) {
-      carousel._smoothScrolling = true;
-      clearTimeout(carousel._scrollEndTimer);
-      carousel._scrollEndTimer = setTimeout(() => { carousel._smoothScrolling = false; }, 500);
       target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
   }
@@ -124,7 +121,6 @@ function initCarousel(container) {
     carousel.removeEventListener('scroll', carousel._scrollHandler);
   }
   carousel._scrollHandler = () => {
-    if (carousel._smoothScrolling) return;
     if (scrollRaf) return;
     scrollRaf = requestAnimationFrame(() => {
       scrollRaf = null;
@@ -143,6 +139,7 @@ function initCarousel(container) {
     });
   };
   carousel.addEventListener('scroll', carousel._scrollHandler);
+
 
 
 
@@ -232,7 +229,6 @@ function initSimpleCarousel(container, slides, dotsContainer, prevBtn, nextBtn) 
     carousel.removeEventListener('scroll', carousel._scrollHandler);
   }
   carousel._scrollHandler = () => {
-    if (carousel._smoothScrolling) return;
     if (scrollRaf) return;
     scrollRaf = requestAnimationFrame(() => {
       scrollRaf = null;
