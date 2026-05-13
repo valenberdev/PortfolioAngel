@@ -137,6 +137,7 @@ function initCarousel(container) {
       });
       if (closest !== currentIndex) {
         currentIndex = closest;
+        updateActive(currentIndex);
       }
     }, 150);
   };
@@ -240,7 +241,10 @@ function initSimpleCarousel(container, slides, dotsContainer, prevBtn, nextBtn) 
         const dist = Math.abs(sRect.left + sRect.width / 2 - center);
         if (dist < closestDist) { closestDist = dist; closest = idx; }
       });
-      if (closest !== currentIndex) { currentIndex = closest; }
+      if (closest !== currentIndex) {
+        currentIndex = closest;
+        updateActive(currentIndex);
+      }
     }, 150);
   };
   carousel.addEventListener('scroll', carousel._scrollHandler);
