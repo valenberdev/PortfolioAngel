@@ -206,7 +206,6 @@ function initSimpleCarousel(container, slides, dotsContainer, prevBtn, nextBtn) 
   });
 
   updateActive(0);
-  setTimeout(() => goTo(0), 100);
 }
 
 function filterReels(type, btn) {
