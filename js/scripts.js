@@ -119,14 +119,15 @@ function initCarousel(container) {
     nn.addEventListener('click', (e) => { e.stopPropagation(); goTo(currentIndex + 1); });
   }
 
-  let scrollTimeout;
+  let scrollRaf = null;
   if (carousel._scrollHandler) {
     carousel.removeEventListener('scroll', carousel._scrollHandler);
   }
   carousel._scrollHandler = () => {
     if (carousel._smoothScrolling) return;
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
+    if (scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => {
+      scrollRaf = null;
       const rect = carousel.getBoundingClientRect();
       const center = rect.left + rect.width / 2;
       let closest = 0, closestDist = Infinity;
@@ -139,9 +140,10 @@ function initCarousel(container) {
         currentIndex = closest;
         updateActive(currentIndex);
       }
-    }, 150);
+    });
   };
   carousel.addEventListener('scroll', carousel._scrollHandler);
+
 
 
   updateActive(0);
@@ -224,15 +226,16 @@ function initSimpleCarousel(container, slides, dotsContainer, prevBtn, nextBtn) 
     nn.addEventListener('click', (e) => { e.stopPropagation(); goTo(currentIndex + 1); });
   }
 
-  let scrollTimeout;
+  let scrollRaf = null;
   const carousel = container.querySelector('.reels-carousel');
   if (carousel._scrollHandler) {
     carousel.removeEventListener('scroll', carousel._scrollHandler);
   }
   carousel._scrollHandler = () => {
     if (carousel._smoothScrolling) return;
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
+    if (scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => {
+      scrollRaf = null;
       const rect = carousel.getBoundingClientRect();
       const center = rect.left + rect.width / 2;
       let closest = 0, closestDist = Infinity;
@@ -245,7 +248,7 @@ function initSimpleCarousel(container, slides, dotsContainer, prevBtn, nextBtn) 
         currentIndex = closest;
         updateActive(currentIndex);
       }
-    }, 150);
+    });
   };
   carousel.addEventListener('scroll', carousel._scrollHandler);
 
